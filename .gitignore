@@ -1,0 +1,23 @@
+# Gradle: cache va ket qua build (tai tao duoc, khong commit)
+.gradle/
+build/
+.kotlin/
+
+# File may ca nhan (duong dan SDK) - moi may mot kieu
+local.properties
+
+# Android Studio / IntelliJ (phong khi sau nay dung)
+.idea/
+*.iml
+captures/
+.cxx/
+.externalNativeBuild/
+
+# Key ky app - KHONG BAO GIO dua len git
+*.jks
+*.keystore
+
+# Log va file tam cua he dieu hanh
+*.log
+.DS_Store
+Thumbs.db
