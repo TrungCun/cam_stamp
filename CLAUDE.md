@@ -16,3 +16,9 @@ Project cá nhân: làm app camera thật, đồng thời học lập trình And
 - Android SDK: `C:\Android\Sdk` (platform 36, build-tools 36.0.0)
 - Thiết bị test: Samsung SM-S936B qua USB/adb
 - Không dùng Android Studio, làm qua CLI (gradlew, adb, sdkmanager)
+
+## Quy tắc mã nguồn
+
+- Comments bằng tiếng việt dễ hiểu
+- Nếu các là các thuật ngữ chuyên ngành thì dùng tiếng anh
+- Ưu tiên dùng các comment bằng TODO TREE như TODO FIXME BUG HACK XXX NOTE OPTIMIZE và [ ]/[x]
