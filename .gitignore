@@ -17,6 +17,8 @@ captures/
 *.jks
 *.keystore
 
+docs/
+
 # Log va file tam cua he dieu hanh
 *.log
 .DS_Store

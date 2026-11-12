@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -75,7 +76,7 @@ fun CameraScreen() {
         if (hasPermission) {
             Column(modifier = Modifier.fillMaxSize()) {
                 CameraPreview(
-                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    modifier = Modifier.weight(1f).fillMaxWidth().aspectRatio(3f / 4f),
                     cameraIndex = cameraIndex,
                     onCameraBound = { label -> cameraLabel = label }
                 )
@@ -151,6 +152,7 @@ fun bindCamera(
     provider.unbindAll()
     // info.cameraSelector = bo loc tro dung ve camera nay
     provider.bindToLifecycle(lifecycleOwner, info.cameraSelector, preview)
+    Log.i(TAG, "preview size = ${preview.resolutionInfo?.resolution}")  // Log thông tin độ phân giải của Preview nếu có
 
     val label = describe(info)
     Log.i(TAG, "bound -> $label")
@@ -171,7 +173,10 @@ fun describe(info: CameraInfo): String {
     val focal = c2.getCameraCharacteristic(
         CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS
     )?.joinToString()
+    val pixels = c2.getCameraCharacteristic(
+        CameraCharacteristics.SENSOR_INFO_PIXEL_ARRAY_SIZE
+    )
     val zoom = info.zoomState.value
     val facing = if (info.lensFacing == CameraSelector.LENS_FACING_BACK) "BACK" else "FRONT"
-    return "id=${c2.cameraId} $facing focal=${focal}mm zoom=${zoom?.minZoomRatio}..${zoom?.maxZoomRatio}"
+    return "id=${c2.cameraId} $facing focal=${focal}mm zoom=${zoom?.minZoomRatio}..${zoom?.maxZoomRatio} pixels=$pixels"
 }
