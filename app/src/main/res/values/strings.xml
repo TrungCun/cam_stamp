@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Toàn bộ chữ hiển thị của app -->
+<resources>
+    <!-- Tên app hiện dưới icon (Manifest tham chiếu bằng @string/app_name) -->
+    <string name="app_name">Cam Stamp</string>
+    <!-- Màn hình xin quyền -->
+    <string name="permission_rationale">Ứng dụng cần quyền camera để hoạt động.</string>
+    <string name="btn_request_permission">Cấp quyền camera</string>
+    <!-- Màn hình camera. %1$s = tham số thứ nhất, kiểu String (nhãn camera) -->
+    <string name="current_camera">Đang dùng: %1$s</string>
+    <string name="btn_switch_camera">Đổi camera</string>
+</resources>
